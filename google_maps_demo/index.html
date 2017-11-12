@@ -17,14 +17,36 @@
         var harvard_design = {lat: 42.3760051, lng: -71.1160821};
 
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 13,
+          zoom: 14,
           center: media_lab
         });
 
-        var marker = new google.maps.Marker({
+        var marker1 = new google.maps.Marker({
           position: media_lab,
           map: map
         });
+      var contentString1 = '<div id="content">'+
+            '<div id="siteNotice">'+
+            '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">MIT Media Lab</h1>'+
+            '<div id="bodyContent">'+
+            '<p>Graffiti at <b>MIT Media Lab</b></p>'+
+            '<p><img src="images/mit_media_lab.png" style="height: 100%; width: 100%"></p>'
+            '</div>'+
+            '</div>';
+      var infowindow1 = new google.maps.InfoWindow({
+      content: contentString1
+      });
+      marker1.addListener('click', function() {
+      infowindow1.open(map, marker1);
+      });
+
+        var marker2 = new google.maps.Marker({
+          position: harvard_design,
+          map: map
+        });
+
+
       }
     </script>
     <script async defer
