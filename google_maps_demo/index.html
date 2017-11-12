@@ -10,14 +10,17 @@
   </head>
   <body>
     <h3>Hacking Arts 2017 ~~ PART Map Demo</h3>
-    <div id="map"></div>
+    <div id="map" style="height: 900px"></div>
     <script>
       function initMap() {
         var media_lab = {lat: 42.360357, lng: -71.0894527};
+        var harvard_design = {lat: 42.3760051, lng: -71.1160821};
+
         var map = new google.maps.Map(document.getElementById('map'), {
-          zoom: 4,
+          zoom: 13,
           center: media_lab
         });
+
         var marker = new google.maps.Marker({
           position: media_lab,
           map: map
