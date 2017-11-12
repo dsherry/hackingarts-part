@@ -12,6 +12,27 @@
     <h3>Hacking Arts 2017 ~~ PART Map Demo</h3>
     <div id="map" style="height: 900px"></div>
     <script>
+      function addMarker(title, position, imgfile, map) {
+          var marker1 = new google.maps.Marker({
+          position: position,
+          map: map
+          });
+          var contentString1 = '<div id="content">'+
+            '<div id="siteNotice">'+
+              '</div>'+
+            '<h1 id="firstHeading" class="firstHeading">' + title + '</h1>'+
+            '<div id="bodyContent">'+
+              '<p>Graffiti at <b>' + title + '</b></p>'+
+              '<p><img src="' + imgfile + '" style="height: 100%; width: 100%"></p>'
+              '</div>'+
+            '</div>';
+          var infowindow1 = new google.maps.InfoWindow({
+          content: contentString1
+          });
+          marker1.addListener('click', function() {
+          infowindow1.open(map, marker1);
+          });
+      }
       function initMap() {
         var media_lab = {lat: 42.360357, lng: -71.0894527};
         var harvard_design = {lat: 42.3760051, lng: -71.1160821};
@@ -20,33 +41,8 @@
           zoom: 14,
           center: media_lab
         });
-
-        var marker1 = new google.maps.Marker({
-          position: media_lab,
-          map: map
-        });
-      var contentString1 = '<div id="content">'+
-            '<div id="siteNotice">'+
-            '</div>'+
-            '<h1 id="firstHeading" class="firstHeading">MIT Media Lab</h1>'+
-            '<div id="bodyContent">'+
-            '<p>Graffiti at <b>MIT Media Lab</b></p>'+
-            '<p><img src="images/mit_media_lab.png" style="height: 100%; width: 100%"></p>'
-            '</div>'+
-            '</div>';
-      var infowindow1 = new google.maps.InfoWindow({
-      content: contentString1
-      });
-      marker1.addListener('click', function() {
-      infowindow1.open(map, marker1);
-      });
-
-        var marker2 = new google.maps.Marker({
-          position: harvard_design,
-          map: map
-        });
-
-
+        addMarker('MIT Media Lab', media_lab, 'images/mit_media_lab.png', map);
+        addMarker('Harvard Graduate School of Design', harvard_design, 'images/harvard_design.png', map);
       }
     </script>
     <script async defer
