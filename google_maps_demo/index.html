@@ -9,8 +9,8 @@
     </style>
   </head>
   <body>
-    <h3>Hacking Arts 2017 ~~ PART Map Demo</h3>
-    <div id="map" style="height: 900px"></div>
+    <h1>Hacking Arts 2017 ~~ PART Map Demo</h1>
+    <div id="map" style="height: 1100px"></div>
     <script>
       function addMarker(title, position, imgfile, map) {
           var marker1 = new google.maps.Marker({
@@ -36,13 +36,17 @@
       function initMap() {
         var media_lab = {lat: 42.360357, lng: -71.0894527};
         var harvard_design = {lat: 42.3760051, lng: -71.1160821};
+        var berklee = {lat: 42.3463885, lng: -71.0859195};
+        var city_hall = {lat: 42.3630996, lng: -71.0627605};
 
         var map = new google.maps.Map(document.getElementById('map'), {
           zoom: 14,
           center: media_lab
         });
-        addMarker('MIT Media Lab', media_lab, 'images/mit_media_lab.png', map);
-        addMarker('Harvard Graduate School of Design', harvard_design, 'images/harvard_design.png', map);
+        addMarker('MIT Media Lab', media_lab, 'images/mit_media_lab_with_graffiti.png', map);
+        addMarker('Harvard Graduate School of Design', harvard_design, 'images/harvard_design_with_graffiti.png', map);
+        addMarker('Berklee College of Music', berklee, 'images/harvard_design_with_graffiti.png', map);
+        addMarker('Boston City Hall', city_hall, 'images/harvard_design_with_graffiti.png', map);
       }
     </script>
     <script async defer
